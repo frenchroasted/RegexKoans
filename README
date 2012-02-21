@@ -27,7 +27,17 @@ With many thanks to:
 * [Pivotal Labs](http://pivotallabs.com/) for 
 		[Jasmine](http://pivotal.github.com/jasmine/), the splendid Javascript Unit Testing framework
 
+Installation
+------------
+
+Checkout or download the zipped version of this project and extract it to a folder.
+
+Usage
+-----
+* Open "index.html" in a web browser and "spec/01_Basics.js" in an editor.
+* Click on "Basics" in the web page test summary to see progress details.
+* Edit the .js file, save, and reload the web page.
+* Repeat until all the tests are passing.
+
 [jsRegex]: http://www.regular-expressions.info/javascript.html
 [rubular]: http://rubular.com/
-[r2hc]: http://github.com/github/markup/tree/master/lib/github/markups.rb#L13
-[1]: http://github.com/github/markup/issues
