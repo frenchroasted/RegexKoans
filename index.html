@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regular Expression Koans</title>
+	<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine.js"></script>
+	<script type="text/javascript" src="lib/jasmine-1.1.0/jasmine-html.js"></script>
+	<script type="text/javascript" src="spec/01_Basics.js"></script>
+	<script type="text/javascript" src="spec/02_BeginningToEnd.js"></script>
+	<script type="text/javascript" src="spec/03_Or.js"></script>
+	<script type="text/javascript" src="spec/04_CharacterSets.js"></script>
+	<script type="text/javascript" src="spec/05_CharacterSetShortcuts.js"></script>
+	<script type="text/javascript" src="spec/06_Modifiers.js"></script>
+	<script type="text/javascript" src="spec/07_RepeatingCharacters.js"></script>
+	<script type="text/javascript" src="spec/08_GreedyVsMinimal.js"></script>
+	<script type="text/javascript" src="spec/09_Grouping.js"></script>
+	<script type="text/javascript" src="spec/10_CapturingGroups.js"></script>
+	<script type="text/javascript" src="spec/11_Intermission.js"></script>
+	<script type="text/javascript" src="spec/12_RegexReplace.js"></script>
+	<script type="text/javascript" src="spec/13_LookingAhead.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		var jasmineEnv = jasmine.getEnv();
+		jasmineEnv.updateInterval = 1000;
+		jasmineEnv.addReporter(new jasmine.JsApiReporter());
+		var currentWindowOnload = window.onload;
+		window.onload = function() {
+			if (currentWindowOnload) {
+				currentWindowOnload();
+			}
+			jasmineEnv.execute();
+			setTimeout("delayedReport()", 100);
+		};
+
+		function delayedReport() {
+			var reporter = jasmineEnv.reporter.subReporters_[0];
+
+			var allSuites = reporter.suites();
+			var allSpecs = {};
+			var allSpecIds = new Array();
+
+			for (var suiteIndex = 0; suiteIndex < allSuites.length; suiteIndex++) {
+				var thisSuite = allSuites[suiteIndex];
+				thisSuite.resultString = "passed";
+
+				var specList = thisSuite.children;
+
+				for (var specIndex = 0; specIndex < specList.length; specIndex++) {
+					var thisSpec = specList[specIndex];
+					allSpecIds.push(thisSpec.id);
+					allSpecs[thisSpec.id] = thisSuite;
+				}
+			}
+
+			var resultList = reporter.resultsForSpecs(allSpecIds);
+			for (var i = 0; i < allSpecIds.length; i++) {
+				var tempSpecId = allSpecIds[i];
+				var tempResult = resultList[i].result;
+				if (tempResult != "passed") {
+					allSpecs[tempSpecId].resultString = "failed";
+				}
+			}
+
+			for (var suiteIndex = 0; suiteIndex < allSuites.length; suiteIndex++) {
+				var suite = allSuites[suiteIndex];
+				var content = '<a href="ScriptRunner.html?spec=' + escape(suite.name) + '">' + suite.name + '</a>';
+				var newDiv = jQuery('<div/>', {
+									'class': 'suite',
+								    'html':  content
+							});
+				if (suite.resultString == 'passed') { newDiv.addClass('pass'); }
+				else { newDiv.addClass('fail'); }
+				newDiv.appendTo('#suites');
+			}
+		}
+	</script>
+	<style type="text/css">
+		body { font-family: Verdana,sans-serif; font-size:12px; color:#444; background-color:#fff; margin:0; padding:0; }
+		#content, #footer { width:800px; margin:10px auto; }
+		#content ul { padding:0 0 0 18px; margin:0; }
+		#content ul li { padding:4px 0; }
+		.floatright { float:right; text-align:right; margin-top:22px; }
+		.italic { font-style:italic; }
+		#content a.plain { text-decoration:none; color: #444; }
+		#content a.plain:hover { text-decoration:underline; }
+		#suites { background-color:#ddd; border:2px solid #aaa; padding:10px; }
+		#suites .suite { margin-bottom:10px; padding:6px 6px 6px 32px; background-color:#fff; font-size:1.2em; }
+		#suites .suite a { color:#444; text-decoration:none; }
+		#suites .suite a:hover { color:#444; text-decoration:underline; }
+		#suites .pass { background-image:url('media/checkmark_32.png'); background-size:20px 20px; background-repeat:no-repeat; background-position:6px 50%; }
+		#suites .fail { background-image:url('media/error_32.png'); background-size:20px 20px; background-repeat:no-repeat; background-position:6px 50%; }
+		#footer { font-style:italic; font-size:0.9em; color:#777; border-top:1px solid #777; text-align:right; padding:10px 0; }
+	</style>
+</head>
+<body>
+	<div id="content">
+		<h1> Regular Expression Koans </h1>
+		<p>
+		A series of tutorials on Regular Expressions.
+		</p>
+		<p>
+		Learn how to write, read, and use Regular Expressions by completing or correcting
+		code to make failing Unit Tests pass. Each Koan includes a series of Unit Tests
+		which illustrate Regular Expression principles and techniques. I have made an effort
+		to avoid making forward references in the tutorial sequence, but there are enough
+		back references to earlier Koans that it would be best to complete the Koans in
+		the order presented.
+		</p>
+		<p>
+		Javascript's Regular Expression engine is very similar to that of many other
+		programming languages. It differs only in esoteric details and in that it does
+		not support Lookbehind Assertions, which are consequently not covered in this tutorial.
+		For an <a href="http://www.regular-expressions.info/javascript.html">excellent summary of Javascript's Regex capabilities</a>
+		as well as those of many other languages, Jan Goyvaerts is your first and last resource.
+		</p>
+		<p>
+		To practice, to try out some code before using it in your program, or just to play around,
+		<a href="http://rubular.com/">rubular.com</a> is a fantastic Regular Expression resource.
+		It uses Ruby's Regex engine, but the differences are minor. This web tool should be in the
+		Bookmarks list of every programmer.
+		</p>
+		<p>
+		With many thanks to:
+		<ul>
+			<li><a href="http://edgecase.com/">EdgeCase</a> for the original, inspired, and inspirational
+				<a href="http://rubykoans.com/">Ruby Koans</a></li>
+			<li><a href="http://pivotallabs.com/">Pivotal Labs</a> for 
+				<a href="http://pivotal.github.com/jasmine/">Jasmine</a>, the splendid Javascript Unit Testing framework</li>
+		</ul>
+		</p>
+		<div id="suites">
+			<div class="floatright"><a href="ScriptRunner.html" class="plain italic">view all</a></div>
+			<h2> Koans </h2>
+		</div>
+	</div>
+	<div id="footer">
+		Written by Aaron Brown (<a href="mailto:aaron@thebrownproject.com">aaron@thebrownproject.com</a>) in 2012.
+	</div>
+</body>
+</html>
