@@ -22,10 +22,8 @@ It uses Ruby's Regex engine, but the differences are minor. This web tool should
 Bookmarks list of every programmer.
 
 With many thanks to:
-* [EdgeCase](http://edgecase.com/) for the original, inspired, and inspirational
-		[Ruby Koans](http://rubykoans.com/)
-* [Pivotal Labs](http://pivotallabs.com/) for 
-		[Jasmine](http://pivotal.github.com/jasmine/), the splendid Javascript Unit Testing framework
+* [EdgeCase](http://edgecase.com/) for the original, inspired, and inspirational [Ruby Koans](http://rubykoans.com/)
+* [Pivotal Labs](http://pivotallabs.com/) for [Jasmine](http://pivotal.github.com/jasmine/), the splendid Javascript Unit Testing framework
 
 Installation
 ------------
