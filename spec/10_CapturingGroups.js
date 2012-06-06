@@ -9,9 +9,9 @@ describe("Capturing Groups", function() {
   // accessed later. JavaScript supports this facility in the RegExp
   // object, through the RegExp.exec() method.
   // 
-  // RegExp.exec() returns an String Array where index 0 is the full
+  // RegExp.exec() returns a String Array where index 0 is the full
   // matched string and each index after that, from 1 to however many
-  // groups are in the pattern, contain the remembered text from each
+  // groups are in the pattern, contains the remembered text from each
   // group.
   // 
   // For example:

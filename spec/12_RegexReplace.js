@@ -50,7 +50,7 @@ describe("Regular Expression Replacement", function() {
   
   it('to reference a capture group, use $n inside the replacement string', function() {
     
-    // Note: Since Javascript, $ is a special character in the replacement string,
+    // Note: Since, in Javascript, $ is a special character in the replacement string,
     // to put a literal $ in the replacement string, say $$
     
     var original = '<div id="someId">Hello</div>';

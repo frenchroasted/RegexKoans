@@ -71,7 +71,7 @@ describe("Intermission", function() {
   it('Parse URL, detect invalid format', function() {
     // Assumptions:
     //   * Only accept these protocols: http, https, ftp, sftp, ssh
-    //   * server is required, may be numeric (IPv5) or named
+    //   * server is required, may be numeric (IPv4) or named
     //   * server name may only be one word (e.g. 'localhost')
     //   * port is optional
     //   * directory and file name are both optional

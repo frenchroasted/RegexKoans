@@ -5,7 +5,7 @@ describe("Grouping", function() {
   // applied to sequences by grouping the sequence inside ( ) like
   // "ababababab" =~ /^(ab)+$/
   
-  it('the cat is optinal', function() {
+  it('the cat is optional', function() {
     
     var fixThisPattern = /^DogCatPony$/;
     
