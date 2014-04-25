@@ -41,8 +41,8 @@ describe("Looking Ahead", function() {
     
     var lookaheadPattern = /q(?=u)/;
     
-    expect( str1 ).toEqual(lookaheadPattern);
-    expect( str2 ).not.toEqual(lookaheadPattern);
+    expect( str1 ).toMatch(lookaheadPattern);
+    expect( str2 ).not.toMatch(lookaheadPattern);
     
     expect(1).toEqual(2); // remove this line to pass
   });
@@ -74,14 +74,14 @@ describe("Looking Ahead", function() {
     // the position after the "q". To make the lookahead scan ahead farther into
     // the string, you'll have to incorporate a .*
     
-    expect( 'abcde' ).not.toEqual(fixThisPattern);
+    expect( 'abcde' ).not.toMatch(fixThisPattern);
     
-    expect( 'a6cD'  ).toEqual(fixThisPattern);
-    expect( 'Abcd9' ).toEqual(fixThisPattern);
-    expect( 'X3'    ).toEqual(fixThisPattern);
+    expect( 'a6cD'  ).toMatch(fixThisPattern);
+    expect( 'Abcd9' ).toMatch(fixThisPattern);
+    expect( 'X3'    ).toMatch(fixThisPattern);
     
-    expect( ''      ).not.toEqual(fixThisPattern);
-    expect( '12345' ).not.toEqual(fixThisPattern);
+    expect( ''      ).not.toMatch(fixThisPattern);
+    expect( '12345' ).not.toMatch(fixThisPattern);
   });
   
   it('validate a password', function() {
@@ -94,13 +94,13 @@ describe("Looking Ahead", function() {
     
     var fixThisPattern = /___/;
     
-    expect( 'abcXYZ123'        ).toEqual(fixThisPattern);
-    expect( '89ghV.'           ).toEqual(fixThisPattern);
-    expect( 'X0aaaaaaaaaaaaaa' ).toEqual(fixThisPattern);
-    expect( 'abc123'            ).not.toEqual(fixThisPattern);
-    expect( 'aX5##'             ).not.toEqual(fixThisPattern);
-    expect( 'abc123XXXXXXXXXXX' ).not.toEqual(fixThisPattern);
-    expect( 'abc123 ZZ'         ).not.toEqual(fixThisPattern);
+    expect( 'abcXYZ123'        ).toMatch(fixThisPattern);
+    expect( '89ghV.'           ).toMatch(fixThisPattern);
+    expect( 'X0aaaaaaaaaaaaaa' ).toMatch(fixThisPattern);
+    expect( 'abc123'            ).not.toMatch(fixThisPattern);
+    expect( 'aX5##'             ).not.toMatch(fixThisPattern);
+    expect( 'abc123XXXXXXXXXXX' ).not.toMatch(fixThisPattern);
+    expect( 'abc123 ZZ'         ).not.toMatch(fixThisPattern);
   });
   
   // You can combine lookahead with group captures to solve more interesting
