@@ -7,7 +7,7 @@ describe("Modifiers", function() {
     // use the /^whatever$/ pattern syntax, modifiers are single
     // characters that come after the //. 
     // 
-    // To make a JavaScript Pattern non-case-sensitive, begin the
+    // To make a JavaScript Pattern non-case-sensitive,
     // put "i" after the //.
     // 
     // Note: Some programming languages do not support modifiers like
@@ -48,12 +48,14 @@ describe("Modifiers", function() {
     // ^ and $ match begin-end of each line, separated
     // by line feed. ^ and $ match intermediate
     // "lines" within input string
+
+    // Hint: Notice "abc" appears twice in the matching string.
     
-    var fixThisPattern = /^.*$/;
+    var fixThisPattern = /^abc$/;
     
-    var matches = "abc\nxyz".match(fixThisPattern);
+    var matches = "abc\nabc".match(fixThisPattern);
     
-    expect( 'abc\nxyz' ).toMatch(fixThisPattern);
+    expect( 'abc\nabc' ).toMatch(fixThisPattern);
     
     expect( matches.length ).toEqual(2);
     expect( matches[0]     ).toEqual("___");
