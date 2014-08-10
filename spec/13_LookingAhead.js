@@ -116,7 +116,7 @@ describe("Looking Ahead", function() {
     var fixThisPattern = /___/;
     var idGroupIdx = ___;
     
-    var matcher1 = fixThisPattern.exec( '<img src="pic.jpg" id="my_pic"/>'                        );
+    var matches1 = fixThisPattern.exec( '<img src="pic.jpg" id="my_pic"/>'                        );
     var matches2 = fixThisPattern.exec( '<img src="http://localhost/somepic.gif" id="localPic"/>' );
     var matches3 = fixThisPattern.exec( '<img src="mypic.png" id="hasTitle" alt="My Pic!"/>'      );
     
