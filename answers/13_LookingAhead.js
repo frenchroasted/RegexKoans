@@ -1,6 +1,6 @@
 describe("Looking Ahead", function() {
 
-  var ___ = 0;
+  const ___ = 0;
 
   // Given all we've learned so far, there are still some surprisingly
   // simple patterns that we cannot match with the tools in the
@@ -36,15 +36,15 @@ describe("Looking Ahead", function() {
 
   // Some examples to show the syntax
   it('match a q that is followed by a u', function() {
-    var str1 = 'The quick brown fox jumped over the lazy dog';
-    var str2 = 'The other brown fox was from Qatar.';
+    const str1 = 'The quick brown fox jumped over the lazy dog';
+    const str2 = 'The other brown fox was from Qatar.';
 
-    var lookaheadPattern = /q(?=u)/;
+    const lookaheadPattern = /q(?=u)/i;
 
     expect( str1 ).toMatch(lookaheadPattern);
     expect( str2 ).not.toMatch(lookaheadPattern);
 
-    // expect(1).toEqual(2); // remove this line to pass
+    // expect(1).toEqual(2); // remove this line to continue the tutorial
   });
 
   // The Koan above could easily be matched with a pattern without any lookahead
@@ -62,12 +62,12 @@ describe("Looking Ahead", function() {
   // we'll get to later.
 
   it('verify that the string contains at least one uppercase letter and one number', function() {
-    var str1 = 'abcde';
-    var str2 = 'a6cD';
-    var str3 = 'Abcd9';
-    var str4 = '12345';
+    const str1 = 'abcde';
+    const str2 = 'a6cD';
+    const str3 = 'Abcd9';
+    const str4 = '12345';
 
-    var fixThisPattern = /(?=.*[A-Z])(?=.*\d)/;
+    const fixThisPattern = /(?=.*[A-Z])(?=.*\d)/;
 
     // Hint: Just like any other Regex element, the lookahead element is position-
     // specific. See the "qu" example above: the "u" must be present in exactly
@@ -92,7 +92,7 @@ describe("Looking Ahead", function() {
     //   * Must be between 6 and 16 characters long
     //   * Any non-whitespace character is allowed
 
-    var fixThisPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\S{6,16}$/;
+    const fixThisPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\S{6,16}$/;
 
     expect( 'abcXYZ123'        ).toMatch(fixThisPattern);
     expect( '89ghV.'           ).toMatch(fixThisPattern);
@@ -113,12 +113,12 @@ describe("Looking Ahead", function() {
   it('find the id of every IMG tag without an "alt" attribute', function() {
     // Assume every IMG tag has an id defined
 
-    var fixThisPattern = /^<img\s(?!.*alt="[^"]*").*id="([^"]+)".*$/;
-    var idGroupIdx = 1;
+    const fixThisPattern = /^<img\s(?!.*alt="[^"]*").*id="([^"]+)".*$/;
+    const idGroupIdx = 1;
 
-    var matches1 = fixThisPattern.exec( '<img src="pic.jpg" id="my_pic"/>'                        );
-    var matches2 = fixThisPattern.exec( '<img src="http://localhost/somepic.gif" id="localPic"/>' );
-    var matches3 = fixThisPattern.exec( '<img src="mypic.png" id="hasTitle" alt="My Pic!"/>'      );
+    const matches1 = fixThisPattern.exec( '<img src="pic.jpg" id="my_pic"/>'                        );
+    const matches2 = fixThisPattern.exec( '<img src="http://localhost/somepic.gif" id="localPic"/>' );
+    const matches3 = fixThisPattern.exec( '<img src="mypic.png" id="hasTitle" alt="My Pic!"/>'      );
 
     expect( matches1[idGroupIdx] ).toEqual('my_pic');
     expect( matches2[idGroupIdx] ).toEqual('localPic');
@@ -132,13 +132,13 @@ describe("Looking Ahead", function() {
     //   * If & is already part of an &...; escape sequence, don't escape it
     //   * & escape sequences are always &, followed by some number of letters, then ;
 
-    var fixThisPattern = /&(?![a-z]+;)/g;
-    var escaped = '&amp;';
+    const fixThisPattern = /&(?![a-z]+;)/g;
+    const escaped = '&amp;';
 
-    var str1 = 'Strunk & White'.replace(fixThisPattern, escaped);
-    var str2 = 'This &amp; is already escaped.'.replace(fixThisPattern, escaped);
-    var str3 = '<input type="text" value="You say &quot;Hello&quot;"/>'.replace(fixThisPattern, escaped);
-    var str4 = 'Sample code: if (x < y && x^2 > y^2) { println "x is negative" }'.replace(fixThisPattern, escaped);
+    const str1 = 'Strunk & White'.replace(fixThisPattern, escaped);
+    const str2 = 'This &amp; is already escaped.'.replace(fixThisPattern, escaped);
+    const str3 = '<input type="text" value="You say &quot;Hello&quot;"/>'.replace(fixThisPattern, escaped);
+    const str4 = 'Sample code: if (x < y && x^2 > y^2) { println "x is negative" }'.replace(fixThisPattern, escaped);
 
     expect( str1 ).toEqual( 'Strunk &amp; White'                                                       );
     expect( str2 ).toEqual( 'This &amp; is already escaped.'                                           );
@@ -155,13 +155,13 @@ describe("Looking Ahead", function() {
 
     // Hint: You will need to use $n references to capture groups to solve this
 
-    var fixThisPattern = /^<img(?![^>]*alt="[^"]*")(.*?)(src="([^"]+)")(.*)/;
-    var replacementString = '<img alt="$3"$1$2$4';
+    const fixThisPattern = /^<img(?![^>]*alt="[^"]*")(.*?)(src="([^"]+)")(.*)/;
+    const replacementString = '<img alt="$3"$1$2$4';
 
-    var str1 = '<img src="pic.jpg"/>'.replace(fixThisPattern, replacementString);
-    var str2 = '<img src="trickyPic.jpg"/> src="Not it!" alt="Tricky!"'.replace(fixThisPattern, replacementString);
-    var str3 = '<img src="goodPic.jpg" title="Good Pic" alt="Can\'t touch this!"/>'.replace(fixThisPattern, replacementString);
-    var str4 = '<img alt="Reverse Order" src="backwards.jpg"/>'.replace(fixThisPattern, replacementString);
+    const str1 = '<img src="pic.jpg"/>'.replace(fixThisPattern, replacementString);
+    const str2 = '<img src="trickyPic.jpg"/> src="Not it!" alt="Tricky!"'.replace(fixThisPattern, replacementString);
+    const str3 = '<img src="goodPic.jpg" title="Good Pic" alt="Can\'t touch this!"/>'.replace(fixThisPattern, replacementString);
+    const str4 = '<img alt="Reverse Order" src="backwards.jpg"/>'.replace(fixThisPattern, replacementString);
 
     expect( str1 ).toEqual( '<img alt="pic.jpg" src="pic.jpg"/>'                                         );
     expect( str2 ).toEqual( '<img alt="trickyPic.jpg" src="trickyPic.jpg"/> src="Not it!" alt="Tricky!"' );

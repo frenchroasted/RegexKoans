@@ -1,0 +1,25 @@
+{
+  "name": "regex-koans",
+  "version": "2.0.0",
+  "description": "Learn regular expressions in javascript through unit tests",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch",
+    "answers": "jest --config jest.answers.json"
+  },
+  "keywords": [
+    "regex",
+    "regular",
+    "expression",
+    "koan"
+  ],
+  "author": "Aaron Brown",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}

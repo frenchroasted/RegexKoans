@@ -4,7 +4,7 @@ describe("Repeating Characters", function() {
     // If a character is optional, follow it with a ?
     // in the pattern
 
-    var fixThisPattern = /^soo?n$/;
+    const fixThisPattern = /^soo?n$/;
 
     expect( 'son'   ).toMatch(fixThisPattern);
     expect( 'soon'  ).toMatch(fixThisPattern);
@@ -12,9 +12,9 @@ describe("Repeating Characters", function() {
   });
 
   it('use + to match One Or More of a character', function() {
-    var thisPatternWorks = /^so+n$/
+    const thisPatternWorks = /^so+n$/
 
-    var fixThisPattern = /^x +y$/;
+    const fixThisPattern = /^x +y$/;
 
     expect( 'son'        ).toMatch(thisPatternWorks);
     expect( 'soon'       ).toMatch(thisPatternWorks);
@@ -27,7 +27,7 @@ describe("Repeating Characters", function() {
   });
 
   it('use * to match Zero Or More of a character', function() {
-    var fixThisPattern = /^x *y$/;
+    const fixThisPattern = /^x *y$/;
 
     expect( 'x y'     ).toMatch(fixThisPattern);
     expect( 'x     y' ).toMatch(fixThisPattern);
@@ -36,9 +36,9 @@ describe("Repeating Characters", function() {
 
   it('use {n} to match a specific count of repeated characters', function() {
 
-    var thisPatternWorks = /^xy{3}z$/;
+    const thisPatternWorks = /^xy{3}z$/;
 
-    var fixThisPattern = /^\d{3}-?\d{3}-?\d{4}$/;
+    const fixThisPattern = /^\d{3}-?\d{3}-?\d{4}$/;
 
     expect( 'xyyyz' ).toMatch(thisPatternWorks);
 
@@ -51,9 +51,9 @@ describe("Repeating Characters", function() {
 
   it('use {n,m} to match a range number of repeated characters', function() {
 
-    var thisPatternWorks = /^xy{2,5}z$/;
+    const thisPatternWorks = /^xy{2,5}z$/;
 
-    var fixThisPattern = /^3\.\d{1,3}$/;
+    const fixThisPattern = /^3\.\d{1,3}$/;
 
     expect( 'xyyyz'   ).toMatch(thisPatternWorks);
     expect( 'xyyz'    ).toMatch(thisPatternWorks);
@@ -68,7 +68,7 @@ describe("Repeating Characters", function() {
   });
 
   it('use {n,} for "at least n" and {,m} for "not more than m" repeated characters', function() {
-    var fixThisPattern = /^a {2,}b$/;
+    const fixThisPattern = /^a {2,}b$/;
 
     expect( 'a  b' ).toMatch(fixThisPattern);
     expect( 'a                                                                 b' ).toMatch(fixThisPattern);
@@ -85,7 +85,7 @@ describe("Repeating Characters", function() {
     //   There must be a fractional part (after the decimal)
     //   Either or both of these parts may be zero (0)
 
-    var fixThisPattern = /^\d+\.\d+$/;
+    const fixThisPattern = /^\d+\.\d+$/;
 
     expect( '3.14159'     ).toMatch(fixThisPattern);
     expect( '0.9'         ).toMatch(fixThisPattern);
@@ -121,7 +121,7 @@ describe("Repeating Characters", function() {
   });
 
   it('repeater characters are NOT special characters when used inside [ ]', function() {
-    var fixThisPattern = /^x[*+]y=z$/;
+    const fixThisPattern = /^x[*+]y=z$/;
 
     expect( 'x*y=z' ).toMatch(fixThisPattern);
     expect( 'x+y=z' ).toMatch(fixThisPattern);
@@ -133,7 +133,7 @@ describe("Repeating Characters", function() {
     //   The quotation will be a single line (no newlines)
     //   Any other character besides newline may appear in the quotation
 
-    var fixThisPattern = /^".*"$/;
+    const fixThisPattern = /^".*"$/;
 
     expect( '"Here today, gone tomorrow."'            ).toMatch(fixThisPattern);
     expect( '"Secant, tangent, and cosine. 3.14159!"' ).toMatch(fixThisPattern);

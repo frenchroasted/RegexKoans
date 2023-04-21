@@ -8,14 +8,14 @@ describe("Greedy vs Minimal", function() {
     //
     // We will be using the matched value to complete the tests in this Koan.
 
-    var matches = 'aabbbcc'.match( /b+/ );
+    const matches = 'aabbbcc'.match( /b+/ );
 
     expect( matches[0] ).toEqual('bbb');
 
   });
 
   it('* and + are "greedy" and may match more text than you intend', function() {
-    var matches = '"One","Two","Three"'.match( /".*"/ );
+    const matches = '"One","Two","Three"'.match( /".*"/ );
 
     expect( matches[0] ).toEqual('"One","Two","Three"');    // Change '"One"' so the test passes
   });
@@ -33,9 +33,9 @@ describe("Greedy vs Minimal", function() {
   //   * Turn off greedy matching and use "reluctant" or "minimal" matching instead
 
   it('use a negative character set to control the greedy match', function() {
-    var workingMatches = '"One","Two","Three"'.match( /"[^"]*"/ );
+    const workingMatches = '"One","Two","Three"'.match( /"[^"]*"/ );
 
-    var tagMatches = '<span class="bold">Hello, world!</span>'.match( /<[^>]*>/ );
+    const tagMatches = '<span class="bold">Hello, world!</span>'.match( /<[^>]*>/ );
 
     expect( workingMatches[0] ).toEqual('"One"');
 
@@ -46,9 +46,9 @@ describe("Greedy vs Minimal", function() {
     // To change * and + to non-greedy, minimal matching,
     // use *? and +? instead.
 
-    var fixThisPattern = /<.*?>/;
+    const fixThisPattern = /<.*?>/;
 
-    var matches = '<span class="bold">Hello, world!</span>'.match(fixThisPattern);
+    const matches = '<span class="bold">Hello, world!</span>'.match(fixThisPattern);
 
     expect( matches[0] ).toEqual('<span class="bold">');
 
