@@ -1,9 +1,9 @@
 describe("Character Sets", function() {
 
   it('use [ ] to allow more than one possible character in this position', function() {
-    var workingPattern = /^d[iu]g$/;
+    const workingPattern = /^d[iu]g$/;
     
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     expect( 'dig' ).toMatch(workingPattern);
     expect( 'dug' ).toMatch(workingPattern);
@@ -14,9 +14,9 @@ describe("Character Sets", function() {
   });
   
   it('use - to specify a range of characters inside [ ]', function() {
-    var workingPattern = /^[a-c][a-c][0-9]$/;
+    const workingPattern = /^[a-c][a-c][0-9]$/;
     
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     expect( 'bc3' ).toMatch(workingPattern);
     expect( 'aa8' ).toMatch(workingPattern);
@@ -27,7 +27,7 @@ describe("Character Sets", function() {
   });
   
   it('since - is a special character inside [ ], you must escape it with backslash', function() {
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     expect( '1+2' ).toMatch(fixThisPattern);
     expect( '2-3' ).toMatch(fixThisPattern);
@@ -35,9 +35,9 @@ describe("Character Sets", function() {
   });
   
   it('mixing single characters and ranges is okay', function() {
-    var workingPattern = /^[a-zA-Z][a-zA-Z][0-4abc]$/;
+    const workingPattern = /^[a-zA-Z][a-zA-Z][0-4abc]$/;
     
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     expect( 'dG2').toMatch(workingPattern);
     expect( 'ZZb').toMatch(workingPattern);
@@ -48,9 +48,9 @@ describe("Character Sets", function() {
   });
   
   it('caret negates the character set: "Must Be One Of These" becomes "Must NOT Be One Of These"', function() {
-    var workingPattern = /^x[^a-z]z$/;
+    const workingPattern = /^x[^a-z]z$/;
 
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     expect( 'x3z' ).toMatch(workingPattern);
     expect( 'xYz' ).toMatch(workingPattern);

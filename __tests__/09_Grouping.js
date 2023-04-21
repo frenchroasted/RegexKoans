@@ -1,4 +1,4 @@
-describe("Grouping", function() {
+describe("Grouping", function() {describe
 
   // Until now, we have used special characters and modifiers like ? and +
   // with single characters. All regular expression operators can also be
@@ -7,7 +7,7 @@ describe("Grouping", function() {
   
   it('the cat is optional', function() {
     
-    var fixThisPattern = /^DogCatPony$/;
+    const fixThisPattern = /^DogCatPony$/;
     
     expect( 'DogCatPony' ).toMatch(fixThisPattern);
     expect( 'DogPony'    ).toMatch(fixThisPattern);
@@ -15,7 +15,7 @@ describe("Grouping", function() {
   
   it('anything goes as long as we get to keep the pony', function() {
     
-    var fixThisPattern = /^DogCatPony$/;
+    const fixThisPattern = /^DogCatPony$/;
     
     expect( 'DogCatPony'          ).toMatch(fixThisPattern);
     expect( 'DogPony'             ).toMatch(fixThisPattern);
@@ -25,7 +25,7 @@ describe("Grouping", function() {
   
   it('you can nest regular expression operations inside ( )', function() {
     
-    var fixThisPattern = /^DogCatPony$/;
+    const fixThisPattern = /^DogCatPony$/;
     
     expect( 'DogCatPony'           ).toMatch(fixThisPattern);
     expect( 'DogCatsPony'          ).toMatch(fixThisPattern);
@@ -36,7 +36,7 @@ describe("Grouping", function() {
   
   it('you can nest ( ) inside ( )', function() {
     
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     expect( 'abcd'           ).toMatch(fixThisPattern);
     expect( 'abcdabcdabcd'   ).toMatch(fixThisPattern);
@@ -61,7 +61,7 @@ describe("Grouping", function() {
     // rules we care about for email addresses, so our regex doesn't need
     // to worry about all the other stuff.
     
-    var fixThisPattern = /^___$/;
+    const fixThisPattern = /^___$/;
     
     // Hint: Develop the regex in pieces. First make a pattern that
     // matches the username part, then one section of the domain,

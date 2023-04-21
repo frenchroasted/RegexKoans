@@ -1,6 +1,6 @@
 describe("Capturing Groups", function() {
 
-  var ___ = 0;
+  const ___ = 0;
 
   // In most languages and editors that support regular expressions,
   // ( ) are used for more than just grouping sequences of characters
@@ -15,7 +15,7 @@ describe("Capturing Groups", function() {
   // group.
   //
   // For example:
-  //   var matchGroups = /^(\D+)\d+(\D+)$/.exec("abc1234xyz");
+  //   const matchGroups = /^(\D+)\d+(\D+)$/.exec("abc1234xyz");
   //   expect(matchGroups.length).toEqual(3);
   //   expect(matchGroups[0]).toEqual("abc1234xyz");
   //   expect(matchGroups[1]).toEqual("abc");
@@ -29,10 +29,10 @@ describe("Capturing Groups", function() {
 
   it('getting the hang of it capture groups', function() {
 
-    var pattern = /^([A-Za-z][\w\-.]*((\+([\w+]+))?))@(([a-z\d]+)((\.([a-z\d]+))+))$/;
+    const pattern = /^([A-Za-z][\w\-.]*((\+([\w+]+))?))@(([a-z\d]+)((\.([a-z\d]+))+))$/;
 
-    var matches1 = pattern.exec( 'My.Name01+alias@mail.gmail.com' );
-    var matches2 = pattern.exec( 'simple@gmail.com'               );
+    const matches1 = pattern.exec( 'My.Name01+alias@mail.gmail.com' );
+    const matches2 = pattern.exec( 'simple@gmail.com'               );
 
     expect( matches1[0]   ).toEqual('My.Name01+alias@mail.gmail.com');
     expect( matches1[1]   ).toEqual('My.Name01+alias');
@@ -54,9 +54,9 @@ describe("Capturing Groups", function() {
     //   * The id will be the only attribute inside the div tag
     //   * Only double-quote will be used (")
 
-    var fixThisPattern = /^<div id="([^"]+)".*$/;
+    const fixThisPattern = /^<div id="([^"]+)".*$/;
 
-    var matches = fixThisPattern.exec( '<div id="anArbitraryId"> Here is my text node! </div>' );
+    const matches = fixThisPattern.exec( '<div id="anArbitraryId"> Here is my text node! </div>' );
 
     expect( matches[1] ).toEqual("anArbitraryId");
 
@@ -85,11 +85,11 @@ describe("Capturing Groups", function() {
     //   * Only double-quote will be used (")
     //   * The class attribute is guaranteed to exist
 
-    var fixThisPattern = /^<[^>]*class="([^"]+)".*$/;
+    const fixThisPattern = /^<[^>]*class="([^"]+)".*$/;
 
-    var matches1 = fixThisPattern.exec( '<div id="someId" class="boxed"> Some text here </div>' );
-    var matches2 = fixThisPattern.exec( '<span class="bold red"> Error! </span>'                );
-    var matches3 = fixThisPattern.exec( '<img src="image.jpg" class="framed" id="myPortrait"/>' );
+    const matches1 = fixThisPattern.exec( '<div id="someId" class="boxed"> Some text here </div>' );
+    const matches2 = fixThisPattern.exec( '<span class="bold red"> Error! </span>'                );
+    const matches3 = fixThisPattern.exec( '<img src="image.jpg" class="framed" id="myPortrait"/>' );
 
     expect( matches1[1] ).toEqual("boxed");
     expect( matches2[1] ).toEqual("bold red");
@@ -101,9 +101,9 @@ describe("Capturing Groups", function() {
     // Using the same counting system that the Pattern.exec() method uses, \1 \2 ... \n will
     // reference a group that has been defined within that same pattern.
 
-    var thisPatternWorks = /^([a-z]+)\d+\1$/;
+    const thisPatternWorks = /^([a-z]+)\d+\1$/;
 
-    var fixThisPattern = /^(["|(])[\w\s]+\1$/;
+    const fixThisPattern = /^(["|(])[\w\s]+\1$/;
 
     expect( 'ab12345ab' ).toMatch(thisPatternWorks);
     expect( 'a12345x'   ).not.toMatch(thisPatternWorks);
@@ -121,11 +121,11 @@ describe("Capturing Groups", function() {
     //   The attribute will never use a mismatch, like class="one'
 
 
-    var fixThisPattern = /^<[^>]*class=(['"])(.+?)\1.*$/;
+    const fixThisPattern = /^<[^>]*class=(['"])(.+?)\1.*$/;
 
-    var matches1 = fixThisPattern.exec( '<div id="someId" class="boxed"> Some text here </div>'   );
-    var matches2 = fixThisPattern.exec( "<span class='bold red'> Error! </span>"                  );
-    var matches3 = fixThisPattern.exec( '<img src="image.jpg" class=\'framed\' id="myPortrait"/>' );
+    const matches1 = fixThisPattern.exec( '<div id="someId" class="boxed"> Some text here </div>'   );
+    const matches2 = fixThisPattern.exec( "<span class='bold red'> Error! </span>"                  );
+    const matches3 = fixThisPattern.exec( '<img src="image.jpg" class=\'framed\' id="myPortrait"/>' );
 
     expect( matches1[2] ).toEqual('boxed');
     expect( matches2[2] ).toEqual('bold red');

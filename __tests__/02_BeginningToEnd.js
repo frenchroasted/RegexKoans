@@ -15,7 +15,7 @@ describe("Beginning To End", function() {
   it('use both to match the entire input', function() {
     expect( 'dog cat pony' ).not.toMatch(/^cat$/);  // This one already works
     
-    expect( 'dog cat pony' ).toMatch(/^___$/);      // Fix this one so it passes
+    expect( 'dog cat pony' ).toMatch(/^___y$/);      // Fix this one so it passes
   });
   
   it('a RegEx without any anchors will match a substring anywhere in the input', function() {

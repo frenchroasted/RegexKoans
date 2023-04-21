@@ -1,6 +1,6 @@
 describe("Modifiers", function() {
 
-  var ___ = 0;
+  const ___ = 0;
 
   it('regular expressions don\'t have to be case-sensitive', function() {
     // In many programming languages, especially those that
@@ -16,7 +16,7 @@ describe("Modifiers", function() {
     // to the language API to see how to make a case-insensitive match
     // in your language.
     
-    var fixThisPattern = /^abc$/;
+    const fixThisPattern = /^abc$/;
     
     expect( 'abc' ).toMatch(fixThisPattern);
     expect( 'ABC' ).toMatch(fixThisPattern);
@@ -36,8 +36,8 @@ describe("Modifiers", function() {
     // The JavaScript String.match function returns
     // an array of matches.
 
-    var singleMatch = /x/;
-    var globalMatch = /x/g;
+    const singleMatch = /x/;
+    const globalMatch = /x/g;
 
     expect( "xxx".match(singleMatch).length ).toEqual(___);
     expect( "xxx".match(globalMatch).length ).toEqual(___);
@@ -51,9 +51,9 @@ describe("Modifiers", function() {
 
     // Hint: Notice "abc" appears twice in the matching string.
     
-    var fixThisPattern = /^abc$/;
+    const fixThisPattern = /^abc$/;
     
-    var matches = "abc\nabc".match(fixThisPattern);
+    const matches = "abc\nabc".match(fixThisPattern);
     
     expect( 'abc\nabc' ).toMatch(fixThisPattern);
     

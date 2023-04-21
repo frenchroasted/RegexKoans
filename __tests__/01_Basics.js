@@ -1,6 +1,6 @@
 describe("Basics", function() {
 
-	it('replace /^___$/ with /^a$/ to make RegEx match', function() {
+	it('replace /^___$/ with /^a$/ to make RegEx match. We\'ll explain ^ and $ later.', function() {
 		expect('a').toMatch(/^___$/);
 	});
 	
